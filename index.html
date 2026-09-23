@@ -4,25 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b1a3a">
-<title>Sutton Grand Prix</title>
+<title>Sutton Kart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="dist/style.css">
+<style>
+/* ---- loading screen (inline so it paints instantly; the rest of the UI is in dist/style.css) ---- */
+html, body { background: #040915; }
+#loading { position: fixed; inset: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #f6f8fc; z-index: 40;
+  font-family: 'Barlow', 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif; background: radial-gradient(ellipse at 30% 40%, #1a2f6e 0%, #081230 45%, #03060f 100%); }
+#loading[hidden] { display: none; }
+.ld-speed { position: absolute; inset: -20%; transform: rotate(-12deg); opacity: .55;
+  background: repeating-linear-gradient(90deg, transparent 0 140px, rgba(255, 210, 63, .12) 140px 141px, transparent 141px 380px, rgba(255, 255, 255, .08) 380px 382px),
+    repeating-linear-gradient(90deg, transparent 0 60px, rgba(120, 170, 255, .06) 60px 61px);
+  background-size: 760px 100%, 211px 100%; animation: ldSpeed .9s linear infinite; }
+@keyframes ldSpeed { to { background-position: -760px 0, -211px 0; } }
+.ld-bgword { position: absolute; left: 0; top: 50%; display: flex; white-space: nowrap; transform: translateY(-50%) rotate(-8deg);
+  font: 900 italic 30vh/1 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; letter-spacing: -.01em; text-transform: uppercase;
+  color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .06); animation: ldWord 40s linear infinite; }
+@keyframes ldWord { to { transform: translate(-50%, -50%) rotate(-8deg); } }
+.ld-slash { position: absolute; width: 140vw; left: -20vw; transform: rotate(-12deg); }
+.ld-slash.a { top: 12%; height: 10px; background: linear-gradient(90deg, transparent, #e1251b 30%, #ff4b3a 60%, transparent); box-shadow: 0 0 30px rgba(225, 37, 27, .6);
+  animation: ldSlash 3.2s cubic-bezier(.16, 1, .3, 1) infinite; }
+.ld-slash.b { bottom: 16%; height: 4px; background: linear-gradient(90deg, transparent, #f2b705 40%, #ffd23f 70%, transparent); box-shadow: 0 0 24px rgba(242, 183, 5, .7);
+  animation: ldSlash 3.2s cubic-bezier(.16, 1, .3, 1) infinite 1.6s; }
+@keyframes ldSlash { from { translate: -60% 0; opacity: 0; } 20% { opacity: 1; } to { translate: 60% 0; opacity: 0; } }
+.ld-chk { position: absolute; left: -10%; right: -10%; bottom: 0; height: 28px; opacity: .22; transform: skewX(-20deg);
+  background: conic-gradient(#fff 25%, #000 0 50%, #fff 0 75%, #000 0) 0 0 / 28px 28px; animation: ldChk 1.2s linear infinite;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); mask: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); }
+@keyframes ldChk { to { background-position: -56px 0; } }
+.ld-main { position: relative; display: flex; align-items: center; gap: 5vw; width: min(1180px, 92vw); }
+.ld-left { flex: 1.25; min-width: 0; }
+.ld-right { flex: 1; display: flex; justify-content: center; }
+.ld-kicker { display: flex; align-items: center; gap: 10px; font: 700 13px 'Barlow', system-ui, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: rgba(226, 234, 250, .7);
+  animation: ldIn .8s cubic-bezier(.16, 1, .3, 1) both .1s; }
+.ld-kicker i { width: 34px; height: 4px; background: #e1251b; transform: skewX(-30deg); box-shadow: 0 0 12px #e1251b; }
+.ld-kicker b { color: #ffd23f; }
+.ld-word { margin: .5vh 0 3vh; display: flex; flex-direction: column; line-height: .8; font-weight: 900; font-style: italic; text-transform: uppercase;
+  font-family: 'Barlow Condensed', 'Arial Narrow', 'Helvetica Neue Condensed', Arial, sans-serif; transform: skewX(-6deg); }
+.ld-sutton { font-size: clamp(64px, 12vw, 170px); letter-spacing: -.01em; color: #fff; text-shadow: 0 6px 0 rgba(0, 0, 0, .35), 0 0 40px rgba(120, 160, 255, .25);
+  animation: ldSlam .9s cubic-bezier(.16, 1, .3, 1) both .15s; }
+.ld-kart { font-size: clamp(88px, 17vw, 240px); letter-spacing: .02em; margin-left: .35em; margin-top: -.05em;
+  background: linear-gradient(100deg, #b88500 0%, #ffd23f 30%, #fff5c4 45%, #ffd23f 55%, #f2b705 80%) 0 0 / 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .4)) drop-shadow(0 0 28px rgba(255, 210, 63, .35)); animation: ldSlam .9s cubic-bezier(.16, 1, .3, 1) both .3s, ldShine 2.6s ease-in-out infinite 1.2s; }
+@keyframes ldSlam { from { opacity: 0; transform: translateX(-18vw) skewX(-25deg); filter: blur(12px); } 70% { filter: none; } }
+@keyframes ldShine { 0%, 40% { background-position: 100% 0; } 100% { background-position: -150% 0; } }
+@keyframes ldIn { from { opacity: 0; transform: translateY(12px); } }
+.ld-prog { width: min(560px, 100%); animation: ldIn .8s cubic-bezier(.16, 1, .3, 1) both .5s; }
+.ld-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 10px; }
+#loadmsg { font: 600 15px 'Barlow', system-ui, sans-serif; letter-spacing: .04em; color: rgba(226, 234, 250, .8); }
+#loadmsg::after { content: '_'; margin-left: 2px; color: #ffd23f; animation: ldBlink 1s steps(2) infinite; }
+@keyframes ldBlink { 50% { opacity: 0; } }
+#loadpct { font: 900 italic 54px/0.8 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; color: #ffd23f; font-variant-numeric: tabular-nums; text-shadow: 0 0 24px rgba(255, 210, 63, .45); }
+.ld-track { position: relative; height: 22px; border-radius: 3px; background: linear-gradient(#23262d, #16181d); box-shadow: inset 0 2px 6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .08); transform: skewX(-18deg); overflow: visible; }
+.ld-lane { position: absolute; left: 6px; right: 6px; top: 50%; height: 2px; margin-top: -1px; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .5) 0 14px, transparent 14px 28px); animation: ldLane .5s linear infinite; }
+@keyframes ldLane { to { background-position: -28px 0; } }
+#loadbar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 3px; background: linear-gradient(90deg, rgba(225, 37, 27, .9), #f2b705 70%, #ffd23f);
+  box-shadow: 0 0 22px rgba(255, 210, 63, .6); transition: width .4s cubic-bezier(.16, 1, .3, 1); }
+.ld-kartglyph { position: absolute; right: -14px; top: 50%; width: 28px; height: 16px; margin-top: -8px; border-radius: 4px 7px 7px 4px; background: #fff; box-shadow: 0 0 16px #fff, -18px 0 20px rgba(255, 210, 63, .8); transform: skewX(18deg); }
+.ld-kartglyph::before, .ld-kartglyph::after { content: ''; position: absolute; width: 8px; height: 5px; border-radius: 2px; background: #111; left: 3px; }
+.ld-kartglyph::before { top: -4px; } .ld-kartglyph::after { bottom: -4px; }
+#loading .load-tip { margin-top: 14px; min-height: 2.8em; font: 500 14px/1.4 'Barlow', system-ui, sans-serif; color: rgba(226, 234, 250, .5); }
+#loading .load-tip b { display: inline-block; margin-right: 8px; padding: 1px 6px; border-radius: 3px; background: #f2b705; color: #070f24; font: 800 11px 'Barlow', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+#loadcircuit { width: min(420px, 38vw, 52vh); }
+.ld-start { position: absolute; left: 50%; bottom: calc(46px + env(safe-area-inset-bottom)); translate: -50% 0; display: flex; align-items: center; gap: 14px;
+  padding: 12px 26px 12px 14px; border-radius: 999px; border: 1.5px solid rgba(255, 210, 63, .8); background: rgba(7, 15, 36, .72); color: #ffd23f; cursor: pointer;
+  font: inherit; text-align: left; box-shadow: 0 0 0 0 rgba(255, 210, 63, .5), 0 10px 30px rgba(0, 0, 0, .5); animation: ldIn .8s cubic-bezier(.16, 1, .3, 1) both .8s, ldPulse 2s ease-out infinite 1.6s; }
+@keyframes ldPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 210, 63, .45), 0 10px 30px rgba(0, 0, 0, .5); } 100% { box-shadow: 0 0 0 18px rgba(255, 210, 63, 0), 0 10px 30px rgba(0, 0, 0, .5); } }
+.ld-spk { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #ffd23f; color: #070f24; }
+.ld-spk svg { width: 22px; height: 22px; }
+.ld-cta b, .ld-on b { display: block; font: 900 italic 22px/1 'Barlow Condensed', 'Arial Narrow', Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+.ld-cta small, .ld-on small { display: block; margin-top: 3px; font: 700 11px 'Barlow', sans-serif; letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 210, 63, .9); }
+.ld-eq, .ld-on { display: none; }
+.ld-eq { align-items: flex-end; gap: 3px; width: 40px; height: 40px; padding: 10px 9px; border-radius: 50%; background: #ffd23f; }
+.ld-eq i { flex: 1; background: #070f24; border-radius: 1px; animation: ldEq .7s ease-in-out infinite alternate; }
+.ld-eq i:nth-child(2) { animation-delay: -.3s; } .ld-eq i:nth-child(3) { animation-delay: -.55s; } .ld-eq i:nth-child(4) { animation-delay: -.15s; }
+@keyframes ldEq { from { height: 20%; } to { height: 100%; } }
+body.sound-on .ld-start { animation: none; cursor: default; border-color: rgba(47, 214, 123, .7); }
+body.sound-on .ld-spk, body.sound-on .ld-cta { display: none; }
+body.sound-on .ld-eq { display: flex; } body.sound-on .ld-on { display: block; }
+body.sound-on .ld-on small { color: #2fd67b; }
+#loading .legal { position: absolute; bottom: max(10px, env(safe-area-inset-bottom)); left: 0; right: 0; text-align: center; font: 500 11px 'Barlow', sans-serif; color: rgba(226, 234, 250, .4); letter-spacing: .04em; }
+#loading .legal b { color: rgba(226, 234, 250, .65); }
+#loading { transition: opacity .8s cubic-bezier(.16, 1, .3, 1), transform .8s cubic-bezier(.16, 1, .3, 1); }
+#loading.out { opacity: 0; transform: scale(1.06); pointer-events: none; }
+@media (max-width: 760px), (max-height: 520px) {
+  .ld-main { flex-direction: column; gap: 2vh; }
+  .ld-right { display: none; }
+  .ld-start { bottom: 34px; padding: 10px 18px 10px 10px; }
+}
+@media (prefers-reduced-motion: reduce) { #loading *, #loading *::before, #loading *::after { animation-duration: 0s !important; animation-iteration-count: 1 !important; } }
+</style>
 </head>
 <body>
 <canvas id="gl"></canvas>
 
 <!-- ============================================================ LOADING -->
+<!-- styled inline (below) so it paints at once, before the stylesheet or the 12 MB game bundle arrive -->
 <div id="loading" class="screen">
-  <div class="load-grid" aria-hidden="true"></div>
-  <div class="lockup" data-lockup></div>
-  <div class="load-box">
-    <div class="load-row"><span id="loadmsg">Surveying Sutton…</span><span id="loadpct">0%</span></div>
-    <div class="bar"><div id="loadbar"></div></div>
-    <div class="load-tip" id="loadtip"></div>
+  <div class="ld-speed" aria-hidden="true"></div>
+  <div class="ld-bgword" aria-hidden="true"><span>SUTTON KART SUTTON KART SUTTON KART </span><span>SUTTON KART SUTTON KART SUTTON KART </span></div>
+  <div class="ld-slash a" aria-hidden="true"></div><div class="ld-slash b" aria-hidden="true"></div>
+  <div class="ld-chk" aria-hidden="true"></div>
+  <div class="ld-main">
+    <div class="ld-left">
+      <div class="ld-kicker"><i></i>Real streets · Real Sutton · <b>Lights out soon</b></div>
+      <h1 class="ld-word"><span class="ld-sutton">Sutton</span><span class="ld-kart">Kart</span></h1>
+      <div class="ld-prog">
+        <div class="ld-row"><span id="loadmsg">Surveying Sutton…</span><span id="loadpct">0%</span></div>
+        <div class="ld-track"><div class="ld-lane"></div><div id="loadbar"><i class="ld-kartglyph"></i></div></div>
+        <div class="load-tip" id="loadtip"></div>
+      </div>
+    </div>
+    <div class="ld-right"><div id="loadcircuit"></div></div>
   </div>
+  <button class="ld-start" id="ldstart" type="button">
+    <span class="ld-spk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+    <span class="ld-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="ld-cta"><b>Click or press any key</b><small>Sound on · start your engines</small></span>
+    <span class="ld-on"><b>Sound on</b><small>Soundtrack playing</small></span>
+  </button>
   <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL)</div>
 </div>
 
@@ -132,7 +235,7 @@
 <!-- ============================================================ RESULTS -->
 <div id="results" class="screen dim" hidden>
   <div class="res-head">
-    <div class="panel-kicker" id="reskicker">Sutton Grand Prix · Final classification</div>
+    <div class="panel-kicker" id="reskicker">Sutton Kart · Final classification</div>
     <h2 id="restitle">Results</h2>
     <div class="res-me" id="resme"></div>
   </div>
@@ -151,6 +254,98 @@
   <div class="tr"><button data-k="item" class="t-item" aria-label="Use item"></button><button data-k="drift" class="t-drift" aria-label="Hop / drift"></button><button data-k="gas" class="t-gas" aria-label="Accelerate"></button></div>
 </div>
 
-<script src="dist/game.js"></script>
+<script>
+// Runs before the 12 MB game bundle has parsed:
+//  - keeps the loading screen alive (status lines rotate, the bar creeps) until the game's own progress takes over;
+//  - renders a short loading-music loop (D major, 4 bars at the title theme's tempo) with an OfflineAudioContext,
+//    and plays it the moment the player clicks or presses a key (browsers keep audio off until then). The game
+//    reuses this AudioContext (window.__skAudio, src/audio.js) and fades the loop out when the title theme starts.
+(function () {
+  var lines = ['Closing the roads round Sutton…', 'Sweeping the kerbs on Throwley Way…', 'Chalking the grid…', 'Warming the tyres…', 'Briefing the marshals…'];
+  var msg = document.getElementById('loadmsg'), bar = document.getElementById('loadbar'), i = 0, w = 0;
+  var iv = setInterval(function () {
+    if (window.game) { clearInterval(iv); return; }
+    w = Math.min(4, w + 0.25); bar.style.width = w + '%';
+    if (++i % 7 === 0) msg.textContent = lines[(i / 7) % lines.length];
+  }, 160);
+
+  var AC = window.AudioContext || window.webkitAudioContext, OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  if (!AC || !OAC) return;
+  var SR = 44100, BAR = 2.25, LEN = 4 * BAR, TAIL = 3, loopBuf = null, want = false;
+  var mtof = function (m) { return 440 * Math.pow(2, (m - 69) / 12); };
+  var oc = new OAC(2, Math.ceil((LEN + TAIL) * SR), SR), dst = oc.createDynamicsCompressor();
+  dst.threshold.value = -14; dst.ratio.value = 3; dst.connect(oc.destination);
+  var dly = oc.createDelay(1), fb = oc.createGain(), dlp = oc.createBiquadFilter();
+  dly.delayTime.value = BAR / 16 * 3; fb.gain.value = 0.35; dlp.frequency.value = 3000;
+  dly.connect(dlp).connect(fb).connect(dly); dlp.connect(dst);
+  function voice(type, f, t, dur, vol, cut, att, rel, pan, det, toDelay) {
+    var o = oc.createOscillator(), g = oc.createGain(), lp = oc.createBiquadFilter(), p = oc.createStereoPanner();
+    o.type = type; o.frequency.value = f; o.detune.value = det || 0; lp.frequency.value = cut; p.pan.value = pan || 0;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + att); g.gain.setTargetAtTime(0, t + dur, rel);
+    o.connect(lp).connect(g).connect(p).connect(dst); if (toDelay) p.connect(dly);
+    o.start(t); o.stop(t + dur + rel * 6);
+  }
+  var chords = [[50, 54, 57, 62, 66], [50, 53, 58, 62, 65], [48, 52, 55, 60, 64], [50, 54, 57, 62, 69]], roots = [38, 34, 36, 38];
+  for (var b = 0; b < 4; b++) {
+    var t0 = b * BAR, ch = chords[b];
+    for (var k = 0; k < ch.length; k++) for (var d = -1; d <= 1; d += 2)   // soft string pad
+      voice('sawtooth', mtof(ch[k]), t0, BAR, 0.022, 1400, 0.5, 0.6, d * 0.5, d * 8);
+    for (var e = 0; e < 8; e++) {                                         // driving eighth-note bass
+      var te = t0 + e * BAR / 8;
+      voice('sawtooth', mtof(roots[b] + (e % 2 ? 12 : 0)), te, BAR / 8 * 0.7, 0.09, 700 + e * 60, 0.005, 0.05, 0);
+    }
+    for (var q = 0; q < 16; q++) {                                        // shimmering arpeggio into the delay
+      var n = ch[[0, 2, 4, 3, 1, 3, 2, 4][q % 8]] + 24;
+      voice('triangle', mtof(n), t0 + q * BAR / 16, BAR / 16, q % 4 ? 0.018 : 0.03, 6000, 0.004, 0.08, (q % 2 ? 0.4 : -0.4), 0, true);
+    }
+    for (var kk = 0; kk < 4; kk += 2) {                                   // kick on 1 and 3
+      var tk = t0 + kk * BAR / 4, ko = oc.createOscillator(), kg = oc.createGain();
+      ko.frequency.setValueAtTime(140, tk); ko.frequency.exponentialRampToValueAtTime(45, tk + 0.12);
+      kg.gain.setValueAtTime(0.5, tk); kg.gain.exponentialRampToValueAtTime(0.001, tk + 0.35);
+      ko.connect(kg).connect(dst); ko.start(tk); ko.stop(tk + 0.4);
+    }
+  }
+  oc.startRendering().then(function (buf) {
+    // fold the tail back onto the start so the loop repeats seamlessly
+    var n = Math.round(LEN * SR), out = new AudioBuffer({ numberOfChannels: 2, length: n, sampleRate: SR });
+    for (var c = 0; c < 2; c++) {
+      var src = buf.getChannelData(c), dstc = new Float32Array(n);
+      dstc.set(src.subarray(0, n));
+      for (var j = 0; j < src.length - n; j++) dstc[j] += src[n + j];
+      out.copyToChannel(dstc, c);
+    }
+    loopBuf = out; S.readyAt = performance.now();
+    if (want) play();
+  });
+
+  var S = window.__skAudio = { ctx: null, gain: null, src: null, playing: false };
+  function play() {
+    if (!loopBuf || S.src || S.done) return;
+    var ctx = S.ctx, g = S.gain = ctx.createGain(), src = S.src = ctx.createBufferSource();
+    src.buffer = loopBuf; src.loop = true; g.gain.setValueAtTime(0, ctx.currentTime); g.gain.linearRampToValueAtTime(0.9, ctx.currentTime + 1.2);
+    src.connect(g).connect(ctx.destination); src.start(); S.playing = true;
+  }
+  // (the game) keep the loop going until the title theme is ready
+  S.resume = function () { if (!S.ctx) return; S.done = false; want = true; if (!S.src) play(); };
+  // the title theme takes over: fade the loop out
+  S.fadeOut = function (secs) {
+    S.done = true;
+    if (!S.src) return;
+    var t = S.ctx.currentTime; S.gain.gain.cancelScheduledValues(t); S.gain.gain.setTargetAtTime(0, t, (secs || 1.5) / 4);
+    var src = S.src; S.src = null; setTimeout(function () { src.stop(); }, (secs || 1.5) * 1000 + 500); S.playing = false;
+  };
+  function gesture(e) {
+    if (e.type === 'keydown' && /^(Tab|Alt|Control|Meta|Shift)$/.test(e.key)) return;
+    if (!S.ctx) S.ctx = new AC();
+    S.ctx.resume();
+    if (S.ctx.state === 'suspended' && !S.ctx.resume) return;
+    want = true; play();
+    document.body.classList.add('sound-on');
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { removeEventListener(ev, gesture, true); });
+  }
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, gesture, true); });
+})();
+</script>
+<script src="dist/game.js" defer></script>
 </body>
 </html>
