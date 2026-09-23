@@ -20,3 +20,6 @@ Contains modified Copernicus Sentinel data 2026. Sentinel-2 L2A surface reflecta
 accessed as Cloud-Optimised GeoTIFFs via the Earth Search STAC catalogue (https://earth-search.aws.element84.com/v1),
 gives the colours of the aerial texture, ground cover and roofs. Copernicus Sentinel data are free, full and open
 (https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice).
+
+The drivers' heads use the MediaPipe canonical face model (468-vertex mesh and triangles; Google, Apache License 2.0,
+https://github.com/google-ai-edge/mediapipe).
