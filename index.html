@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1a3a">
+<title>Sutton Grand Prix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<!-- ============================================================ LOADING -->
+<div id="loading" class="screen">
+  <div class="load-grid" aria-hidden="true"></div>
+  <div class="lockup" data-lockup></div>
+  <div class="load-box">
+    <div class="load-row"><span id="loadmsg">Surveying Sutton…</span><span id="loadpct">0%</span></div>
+    <div class="bar"><div id="loadbar"></div></div>
+    <div class="load-tip" id="loadtip"></div>
+  </div>
+  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL)</div>
+</div>
+
+<!-- ============================================================ TITLE -->
+<div id="title" class="screen" hidden>
+  <div class="cine top"><div class="ticker" id="ticker"></div></div><div class="cine bottom"></div>
+  <div class="title-main">
+    <div class="live-chip"><i></i>Live from SM1<span id="liveround">Round 1</span></div>
+    <div class="lockup big" data-lockup></div>
+    <div class="tag"><span id="tagname">The Sutton Grammar School Circuit</span><i></i><span><span id="tracklen">1.6 km</span> of real South London streets</span></div>
+    <div class="press"><span class="press-glyph" id="pressglyph"></span><span>Press start</span></div>
+  </div>
+  <div class="title-foot">
+    <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL)</div>
+    <div class="ver">London Borough of Sutton · SM1 · <b>v1.1</b></div>
+  </div>
+</div>
+
+<!-- ============================================================ SELECT -->
+<div id="select" class="screen" hidden>
+  <header class="sel-head">
+    <div class="step"><span class="step-n">01</span><span>Driver select</span></div>
+    <div class="sel-mini-logo" data-lockup-mini></div>
+    <button class="back-btn" id="selback"><kbd class="kc">Esc</kbd>Back</button>
+  </header>
+  <div class="sel-body">
+    <section class="hero glass" id="hero">
+      <div class="hero-art">
+                <div class="hero-face" id="heroface"></div>
+        <div class="hero-num" id="heronum">01</div>
+      </div>
+      <div class="hero-info">
+        <div class="hero-kicker" id="herokicker">Home driver</div>
+        <div class="hero-name" id="heroname">Henry</div>
+        <div class="stats" id="herostats"></div>
+        <div class="hero-kart"><span class="lbl">Kart livery</span><span class="kart-sil" id="heroswatch"></span><span id="herokart"></span></div>
+      </div>
+    </section>
+    <section class="sel-side">
+      <div id="roster" role="listbox" aria-label="Drivers"></div>
+      <div id="courses" class="courses" data-nav="course" role="listbox" aria-label="Course"></div>
+      <div class="opts">
+        <div class="opt" id="cc" data-nav="cc"></div>
+        <div class="opt" id="quality" data-nav="quality"></div>
+      </div>
+      <div class="sel-bottom">
+        <details class="controls glass" id="controls">
+          <summary>Controls</summary>
+          <div class="ctl-grid" id="ctlgrid"></div>
+        </details>
+        <button id="go" class="btn primary" data-nav="go"><span>Race</span><kbd class="kc">Enter</kbd></button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ============================================================ HUD -->
+<div id="hud" hidden>
+  <div id="tower">
+    <div class="tw-head"><span class="tw-logo" data-mini-roundel></span><span class="k">Lap</span><b id="lapn">1</b><span class="of">/<span id="lapt">3</span></span></div>
+    <div class="pips" id="lappips"></div>
+    <div id="ranks"></div>
+  </div>
+  <div class="hud-tr">
+    <div id="pos" class="hpanel"><small>Pos</small><b id="posn">1</b><span class="of">/<span id="posof">8</span></span><i id="posdelta"></i></div>
+    <div id="timer" class="hpanel"><div class="t-row main"><span>Time</span><b id="tmain">0:00.000</b></div><div class="t-row"><span>Last</span><b id="tlast">--:--.---</b></div><div class="t-row"><span>Best</span><b id="tbest">--:--.---</b></div></div>
+  </div>
+  <div class="item-wrap">
+    <div id="item"><div id="itemicon"></div><div id="itemstrip"></div><div id="itemcount"></div></div>
+    <div id="itemname"></div>
+  </div>
+  <div id="introcard"></div>
+  <div id="mapwrap"><canvas id="minimap" width="360" height="480"></canvas><div class="map-label">N ↑</div></div>
+  <div id="telemetry">
+    <div class="tm-speed"><b id="spdnum">0</b><span>mph</span></div>
+    <div class="tm-mid">
+      <div class="tm-bar spd"><i id="spdbar"></i></div>
+      <div class="tm-row"><span>Boost</span><div class="tm-bar boost"><i id="boostbar"></i></div></div>
+      <div class="tm-row"><span>Drift</span><div class="tm-seg" id="driftseg"><i><b></b></i><i><b></b></i><i><b></b></i></div></div>
+    </div>
+    <div class="tm-ped"><div class="ped thr"><i id="thr"></i></div><div class="ped brk"><i id="brk"></i></div></div>
+  </div>
+  <div id="street"></div>
+  <div id="banner"></div>
+  <div id="toast"></div>
+  <div id="wrongway"></div>
+  <div id="routehint"><span class="rh-ic"></span><span class="rh-tx"><b class="rh-k"></b><span class="rh-t"></span></span><span class="rh-d"></span></div>
+  <div id="edgehint">Edge of the race area · turn back</div>
+  <div id="lights"></div>
+</div>
+
+<!-- ============================================================ PAUSE -->
+<div id="pause" class="screen dim" hidden>
+  <div class="panel glass pause-panel">
+    <div class="panel-kicker">Race suspended</div>
+    <h2>Paused</h2>
+    <div class="pause-info" id="pauseinfo"></div>
+    <div class="menu-list">
+      <button class="mbtn" id="resume" data-nav><span class="ic" data-ic="play"></span>Resume</button>
+      <button class="mbtn" id="restart" data-nav><span class="ic" data-ic="restart"></span>Restart race</button>
+      <button class="mbtn" id="quit" data-nav><span class="ic" data-ic="home"></span>Quit to menu</button>
+    </div>
+    <div class="hint-row"><span><kbd class="kc">↑</kbd><kbd class="kc">↓</kbd> Select</span><span><kbd class="kc">Enter</kbd> Confirm</span><span><kbd class="kc">Esc</kbd> Resume</span></div>
+  </div>
+</div>
+
+<!-- ============================================================ RESULTS -->
+<div id="results" class="screen dim" hidden>
+  <div class="res-head">
+    <div class="panel-kicker" id="reskicker">Sutton Grand Prix · Final classification</div>
+    <h2 id="restitle">Results</h2>
+    <div class="res-me" id="resme"></div>
+  </div>
+  <div class="res-body">
+    <div class="podium" id="podium"></div>
+    <div class="res-table glass"><table id="restable"></table></div>
+  </div>
+  <div class="row res-btns">
+    <button class="btn primary" id="again" data-nav><span>Race again</span><kbd class="kc">Enter</kbd></button>
+    <button class="btn ghost" id="menu" data-nav><span>Menu</span><kbd class="kc">Esc</kbd></button>
+  </div>
+</div>
+
+<div id="touch" hidden>
+  <div class="tl"><button data-k="left" aria-label="Steer left"></button><button data-k="right" aria-label="Steer right"></button></div>
+  <div class="tr"><button data-k="item" class="t-item" aria-label="Use item"></button><button data-k="drift" class="t-drift" aria-label="Hop / drift"></button><button data-k="gas" class="t-gas" aria-label="Accelerate"></button></div>
+</div>
+
+<script src="dist/game.js"></script>
+</body>
+</html>
