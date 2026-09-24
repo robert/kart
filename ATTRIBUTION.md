@@ -23,3 +23,9 @@ gives the colours of the aerial texture, ground cover and roofs. Copernicus Sent
 
 The drivers' heads use the MediaPipe canonical face model (468-vertex mesh and triangles; Google, Apache License 2.0,
 https://github.com/google-ai-edge/mediapipe).
+
+The route 213 street-level reference photos (`reference-photos/route213-streetlevel/`) are KartaView frames
+(https://kartaview.org), dash-cam photos by alexander-ar (2019), licensed CC BY-SA 4.0
+(https://creativecommons.org/licenses/by-sa/4.0/). They have been cropped to remove the dashboard. Each photo's
+source URL, author and capture date are in its folder's `manifest.json`. They are used as modelling references only
+and are not bundled into the game.
