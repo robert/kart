@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="dist/style.css">
+<link rel="stylesheet" href="dist/style.css?v=a5fee4a18c">
 <style>
 /* ---- loading screen (inline so it paints instantly; the rest of the UI is in dist/style.css) ---- */
 html, body { background: #040915; }
@@ -137,7 +137,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <span class="ld-cta"><b>Click or press any key</b><small>Sound on · start your engines</small></span>
     <span class="ld-on"><b>Sound on</b><small>Soundtrack playing</small></span>
   </button>
-  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL)</div>
+  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 24 Sep 2026 21:29 BST · 022dd4d</span></div>
 </div>
 
 <!-- ============================================================ TITLE -->
@@ -357,6 +357,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
   ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, gesture, true); });
 })();
 </script>
-<script src="dist/game.js" defer></script>
+<script>window.ASSET_Q = { route213: '?v=1db56446ba' }; /* versioned asset query strings: filled in by tools/export_site.sh */</script>
+<script src="dist/game.js?v=7607adb053" defer></script>
 </body>
 </html>
