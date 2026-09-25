@@ -61,3 +61,9 @@ Flickr (https://www.flickr.com, Creative Commons licences only; the non-commerci
 `reference_only`) and KartaView (https://kartaview.org, CC BY-SA 4.0). Each photo's author, licence, source URL and
 capture date are in the folder's `manifest.json`. They are used as modelling references only and are not bundled
 into the game.
+
+The route 93 Merton reference photos (`reference-photos/route93-merton/`: Merton Road, South Wimbledon, Morden Road,
+Merton Park, the edge of Morden Hall Park and Morden town centre) are from Geograph (https://www.geograph.org.uk,
+CC BY-SA 2.0), Wikimedia Commons and Flickr (each under the licence named for it: CC BY, CC BY-SA or public domain).
+Each photo's author, licence, source URL and date are in the folder's `manifest.json`. They are used as modelling
+references only and are not bundled into the game.
