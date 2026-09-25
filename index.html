@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="dist/style.css?v=31125564a0">
+<link rel="stylesheet" href="dist/style.css?v=061a9d1264">
 <style>
 /* ---- loading screen (inline so it paints instantly; the rest of the UI is in dist/style.css) ---- */
 html, body { background: #040915; }
@@ -137,7 +137,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <span class="ld-cta"><b>Click or press any key</b><small>Sound on · start your engines</small></span>
     <span class="ld-on"><b>Sound on</b><small>Soundtrack playing</small></span>
   </button>
-  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 26 Sep 2026 00:15 BST · 1c2bff52</span></div>
+  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 26 Sep 2026 00:31 BST · e6bb5b2e</span></div>
 </div>
 
 <!-- ============================================================ TITLE -->
@@ -227,8 +227,9 @@ body.sound-on .ld-on small { color: #2fd67b; }
   <div id="edgehint">Edge of the race area · turn back</div>
   <div id="lights"></div>
   <!-- the open world's challenge panel (src/openworld/challenges.js hud) -->
-  <div id="owhud"><div class="ow-k" id="owk"></div><div class="ow-obj" id="owobj"></div><div class="ow-row"><b class="ow-time mono" id="owtime"></b><span class="ow-sub" id="owsub"></span></div>
+  <div id="owhud"><div class="ow-k" id="owk"></div><div class="ow-obj" id="owobj"></div><div class="ow-row"><b class="ow-time mono" id="owtime"></b><span class="ow-sub" id="owsub"></span></div><div class="ow-medal" id="owmedal"></div>
     <div class="ow-dir" id="owdir" hidden><span class="ow-arrow" id="owarrow"><svg viewBox="0 0 24 24"><path d="M12 3 L20 20 L12 16 L4 20 Z" fill="currentColor"/></svg></span><span class="ow-dist" id="owdist"></span></div></div>
+  <div id="owtoast"></div>
 </div>
 
 <!-- ============================================================ PAUSE -->
@@ -239,6 +240,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <div class="pause-info" id="pauseinfo"></div>
     <div class="menu-list">
       <button class="mbtn" id="resume" data-nav><span class="ic" data-ic="play"></span>Resume</button>
+      <button class="mbtn" id="owrestart" data-nav hidden><span class="ic" data-ic="restart"></span>Restart challenge<kbd class="kc">⌫</kbd></button>
       <button class="mbtn" id="restart" data-nav><span class="ic" data-ic="restart"></span>Restart race</button>
       <button class="mbtn" id="quit" data-nav><span class="ic" data-ic="home"></span>Quit to menu</button>
     </div>
@@ -252,6 +254,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <div class="panel-kicker">Open world · the 93 and the 213</div>
     <h2>Challenges</h2>
     <div class="ow-list" id="owlist"></div>
+    <div class="ow-heritage" id="owheritage"></div>
     <div class="menu-list row">
       <button class="mbtn" id="owback" data-nav><span class="ic" data-ic="play"></span>Free roam from here</button>
       <button class="mbtn" id="owhome" data-nav><span class="ic" data-ic="home"></span>Free roam from North Cheam</button>
@@ -264,6 +267,8 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <div class="panel-kicker" id="owreskicker"></div>
     <h2 id="owrestitle"></h2>
     <div class="ow-big mono" id="owrestime"></div>
+    <div class="ow-pb" id="owrespb" hidden></div>
+    <div class="ow-medals" id="owresmedals"></div>
     <div class="ow-line" id="owresline"></div>
     <div class="ow-best" id="owresbest"></div>
     <div class="row res-btns">
@@ -389,6 +394,6 @@ body.sound-on .ld-on small { color: #2fd67b; }
 })();
 </script>
 <script>window.ASSET_Q = { route213: '?v=c76c340bf5', route93: '?v=2f8b3d57b6' }; /* versioned asset query strings: filled in by tools/export_site.sh */</script>
-<script src="dist/game.js?v=3531bf39df" defer></script>
+<script src="dist/game.js?v=5c7416828d" defer></script>
 </body>
 </html>
