@@ -52,3 +52,11 @@ Commons (each file's own licence and author), Flickr (Creative Commons licences 
 no-derivatives ones are marked `reference_only`) and KartaView (dash-cam frames, CC BY-SA 4.0). Each photo's source
 URL, author, licence and date are in the folder's `manifest.json`. They are used as modelling references only and
 are not bundled into the game.
+
+The route 93 Putney Hill reference photos (`reference-photos/route93-putneyhill/`: Putney station, Putney Hill,
+Tibbet's Ride, Tibbet's Corner and the start of Wimbledon Park Side) come from Geograph (https://www.geograph.org.uk,
+CC BY-SA 2.0), Wikimedia Commons (https://commons.wikimedia.org, each file under its own licence, mostly CC BY-SA),
+Flickr (https://www.flickr.com, Creative Commons licences only; the non-commercial or no-derivatives ones are marked
+`reference_only`) and KartaView (https://kartaview.org, CC BY-SA 4.0). Each photo's author, licence, source URL and
+capture date are in the folder's `manifest.json`. They are used as modelling references only and are not bundled
+into the game.
