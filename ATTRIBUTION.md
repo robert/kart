@@ -29,3 +29,11 @@ The route 213 street-level reference photos (`reference-photos/route213-streetle
 (https://creativecommons.org/licenses/by-sa/4.0/). They have been cropped to remove the dashboard. Each photo's
 source URL, author and capture date are in its folder's `manifest.json`. They are used as modelling references only
 and are not bundled into the game.
+
+The route 213 route-wide photo hunt's reference photos (`reference-photos/route213-hunt-<stretch>/`, found by
+`tools/fetch_r213_hunt_photos.py`, listed in `docs/r213_photo_hunt.md`) are Geograph Britain and Ireland photos
+(https://www.geograph.org.uk), each licensed CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0/) by its
+photographer: Colin Smith, Hugh Venables, Marathon, Peter T, Roger Cornfoot, Roger Miller, Stacey Harris and
+Stephen Craven. Each photo's source URL,
+author, licence and date are in its folder's `manifest.json`. They are used as modelling references only and are not
+bundled into the game.
