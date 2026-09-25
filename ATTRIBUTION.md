@@ -67,3 +67,7 @@ Merton Park, the edge of Morden Hall Park and Morden town centre) are from Geogr
 CC BY-SA 2.0), Wikimedia Commons and Flickr (each under the licence named for it: CC BY, CC BY-SA or public domain).
 Each photo's author, licence, source URL and date are in the folder's `manifest.json`. They are used as modelling
 references only and are not bundled into the game.
+
+<!-- mapillary -->
+The route 93 Mapillary street-level reference photos (`reference-photos/route93-mapillary-<stretch>/`: `route93-mapillary-merton`, `route93-mapillary-morden`) are Mapillary images (https://www.mapillary.com), © Mapillary contributors, licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). 360° panoramas have been cut into perspective crops. Contributors: cueditsmaps, gness, mappingmerton. Each photo's image id, source URL, creator, capture date and crop are in its folder's `manifest.json`. They are used as modelling references only and are not bundled into the game.
+<!-- /mapillary -->
