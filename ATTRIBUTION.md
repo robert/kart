@@ -77,3 +77,9 @@ https://www.geograph.org.uk), Wikimedia Commons (each file's own licence, mostly
 licences only; non-commercial / no-derivatives ones are marked `reference_only`), KartaView (CC BY-SA 4.0) and
 Panoramax. Each photo's author, licence, source URL and date are in its folder's `manifest.json`. They are used as
 modelling references only and are not bundled into the game.
+The route 93 Wimbledon town centre reference photos (`reference-photos/route93-wimbledon/`: Wimbledon Hill Road,
+Wimbledon Bridge, The Broadway, Merton Road to South Wimbledon) are from Geograph (https://www.geograph.org.uk,
+CC BY-SA 2.0, by their photographers), Wikimedia Commons (https://commons.wikimedia.org, each under its own licence)
+and Flickr (https://www.flickr.com, Creative Commons licences only). Each photo's author, licence, source URL, date
+and position are in the folder's `manifest.json`; Flickr photos under non-commercial or no-derivatives licences are
+marked `reference_only`. They are used as modelling references only and are not bundled into the game.
