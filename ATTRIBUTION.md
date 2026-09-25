@@ -71,3 +71,9 @@ references only and are not bundled into the game.
 <!-- mapillary -->
 The route 93 Mapillary street-level reference photos (`reference-photos/route93-mapillary-<stretch>/`: `route93-mapillary-merton`, `route93-mapillary-morden`, `route93-mapillary-putney`, `route93-mapillary-wimbledon`, `route93-mapillary-wimbledoncommon`) are Mapillary images (https://www.mapillary.com), © Mapillary contributors, licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). 360° panoramas have been cut into perspective crops. Contributors: cueditsmaps, ecatmur, gness, HandyHat, julianlb, mappingmerton, modielnadi, trekviewed. Each photo's image id, source URL, creator, capture date and crop are in its folder's `manifest.json`. They are used as modelling references only and are not bundled into the game.
 <!-- /mapillary -->
+The route 93 reference photos for Morden town centre and Morden Park to North Cheam
+(`reference-photos/route93-morden/`, `reference-photos/route93-northcheam/`) come from Geograph (CC BY-SA 2.0,
+https://www.geograph.org.uk), Wikimedia Commons (each file's own licence, mostly CC BY-SA), Flickr (Creative Commons
+licences only; non-commercial / no-derivatives ones are marked `reference_only`), KartaView (CC BY-SA 4.0) and
+Panoramax. Each photo's author, licence, source URL and date are in its folder's `manifest.json`. They are used as
+modelling references only and are not bundled into the game.
