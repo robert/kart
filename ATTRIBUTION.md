@@ -37,3 +37,11 @@ photographer: Colin Smith, Hugh Venables, Marathon, Peter T, Roger Cornfoot, Rog
 Stephen Craven. Each photo's source URL,
 author, licence and date are in its folder's `manifest.json`. They are used as modelling references only and are not
 bundled into the game.
+
+The bus route 93 Wimbledon Village reference photos (`reference-photos/route93-wimbledonvillage/`: Wimbledon Park Side,
+Parkside, High Street Wimbledon and the top of Wimbledon Hill Road) are from Geograph (https://www.geograph.org.uk,
+CC BY-SA 2.0), Wikimedia Commons (https://commons.wikimedia.org, each file's own licence, mostly CC BY-SA), Flickr
+(https://www.flickr.com, Creative Commons licences only; the NC/ND ones are marked `reference_only`), KartaView
+(https://kartaview.org, CC BY-SA 4.0) and Panoramax (https://panoramax.xyz, CC BY-SA 4.0). Each photo's source URL,
+author, licence and date are in the folder's `manifest.json`. They are used as modelling references only and are not
+bundled into the game.
