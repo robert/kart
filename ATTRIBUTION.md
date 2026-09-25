@@ -99,15 +99,26 @@ as modelling references only and are not bundled into the game.
 
 - Arthur Lloyd (music hall and theatre history site): http://www.arthurlloyd.co.uk/WimbledonTheatre.htm
 - Cinema Treasures (user-contributed photos): https://cinematreasures.org/theaters/32724
+- Douglas & Gordon (estate agent listing): https://www.douglasandgordon.com/buy/property-details/50926/putney-hill-sw15/
+- Firstplan (Putney Exchange project page): https://www.firstplan.co.uk/projects/putney-exchange/
 - Foster Wilson Size (architects): https://fosterwilsonsize.com/projects/polka-theatre-wimbledon/
+- Grace Miller & Co (estate agent listing): https://gracemiller.co.uk/property/chalford-court-putney-hill-london-sw15-2/
 - Layers of London: https://www.layersoflondon.org/map/records/hand-racquet
 - London Churches in photographs (londonchurchbuildings.com): https://londonchurchbuildings.com/2015/01/25/st-winefride-merton-roadlatimer-road-wimbledon-roman-catholic/
 - Love Wimbledon (Wimbledon BID): https://lovewimbledon.org/centre-court-shopping-rebrands-as-wimbledon-quarter/, https://lovewimbledon.org/prince-of-wales-reopens-after-six-figure-upgrade/
 - MAS architecture (architects): https://www.masarchitecture.co.uk/2021/05/merton-rd-wimbledon/
 - Merton Council, Wimbledon Broadway Conservation Area Design Guide (1999): https://www.merton.gov.uk/assets/Documents/0177_wimbledon_broadway_design_guide.pdf
 - Merton Council, Wimbledon Hill Road Conservation Area Character Assessment: https://www.merton.gov.uk/assets/Documents/0177_wimbledon_hill_road_character_assessment.pdf
+- Premier Inn (London Putney Bridge hotel images): https://www.premierinn.com/gb/en/hotels/england/greater-london/london/london-putney-bridge.html
+- Putney SW15 (local news site): https://www.putneysw15.com/info/concrisis001.htm, https://www.putneysw15.com/trading/conhighstopenings2111.htm
 - Taking Stock (Catholic Church buildings review, with Historic England): https://taking-stock.org.uk/building/wimbledon-south-st-winefride/
+- The Spotted Horse (Young's) website: https://www.spottedhorse.co.uk/
+- Urban Pubs & Bars (The Railway venue page): https://www.urbanpubsandbars.com/venues/the-railway
 - useyourlocal.com: https://www.useyourlocal.com/pubs/prince-of-wales-merton-london-sw19-10582/
+- Walking London one postcode at a time (blog): https://londonpostcodewalks.wordpress.com/2013/11/14/sw15-decline-and-fall/
+- Wandsworth Council, Putney Embankment Conservation Area Appraisal and Management Strategy: https://www.wandsworth.gov.uk/media/1671/pe_caaandms.pdf
+- Wandsworth Council, Putney Heath Conservation Area Appraisal and Management Strategy: https://www.wandsworth.gov.uk/media/1677/putney_heath_caaandms_final.pdf
 - WhatPub (CAMRA pub guide, member photos): https://whatpub.com/pubs/SWL/2801/hand-racquet-wimbledon, https://whatpub.com/pubs/SWL/2829/horse-groom-merton, https://whatpub.com/pubs/SWL/2878/oneills-wimbledon, https://whatpub.com/pubs/SWL/2897/prince-of-wales-wimbledon, https://whatpub.com/pubs/SWL/2904/prince-of-wales-merton, https://whatpub.com/pubs/SWL/2973/old-frizzle-wimbledon, https://whatpub.com/pubs/SWL/2982/wibbas-down-inn-wimbledon
 - Wimbledon Quarter (shopping centre website): https://wimbledonquarter.com/
+- Winkworth (estate agent listing): https://www.winkworth.co.uk/properties/sales/albemarle-wimbledon-park-side-london-sw19/SOU170066, https://www.winkworth.co.uk/properties/sales/fairlawns-putney-hill-london-sw15/PUT160270, https://www.winkworth.co.uk/properties/sales/langham-court-48-putney-hill-london-sw15/PUT170280
 <!-- /r93-web -->
