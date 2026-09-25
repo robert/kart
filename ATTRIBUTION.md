@@ -45,3 +45,10 @@ CC BY-SA 2.0), Wikimedia Commons (https://commons.wikimedia.org, each file's own
 (https://kartaview.org, CC BY-SA 4.0) and Panoramax (https://panoramax.xyz, CC BY-SA 4.0). Each photo's source URL,
 author, licence and date are in the folder's `manifest.json`. They are used as modelling references only and are not
 bundled into the game.
+The bus route 93 Putney reference photos (`reference-photos/route93-putney/`: Putney Bridge station, Fulham High
+Street, Putney Bridge, Putney High Street to Putney station) come from Geograph (https://www.geograph.org.uk, each
+photo © its named contributor, licensed CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0/), Wikimedia
+Commons (each file's own licence and author), Flickr (Creative Commons licences only; the non-commercial and
+no-derivatives ones are marked `reference_only`) and KartaView (dash-cam frames, CC BY-SA 4.0). Each photo's source
+URL, author, licence and date are in the folder's `manifest.json`. They are used as modelling references only and
+are not bundled into the game.
