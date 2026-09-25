@@ -84,3 +84,30 @@ https://www.geograph.org.uk), Wikimedia Commons (each file's own licence, mostly
 licences only; non-commercial / no-derivatives ones are marked `reference_only`), KartaView (CC BY-SA 4.0) and
 Panoramax. Each photo's author, licence, source URL and date are in its folder's `manifest.json`. They are used as
 modelling references only and are not bundled into the game.
+
+The route 93 photo-gap reference photos (`reference-photos/route93-gaps-<stretch>/`: Putney Hill, Wimbledon Park Side
+and Parkside, Wimbledon Village, Wimbledon Hill Road, Merton Road, Morden Road, Epsom Road and North Cheam; see
+`docs/r93_photo_gaps.md`) are from Geograph (https://www.geograph.org.uk, CC BY-SA 2.0), Wikimedia Commons (each
+file's own licence) and Flickr (Creative Commons licences only; non-commercial / no-derivatives ones are marked
+`reference_only`). Each photo's author, licence, source URL and date are in its folder's `manifest.json`. They are
+used as modelling references only and are not bundled into the game.
+<!-- r93-web -->
+The route 93 general-web reference photos (`reference-photos/route93-web-<stretch>/`) were collected from the
+public web pages listed below; copyright stays with each site or photographer (licence as stated on the page,
+otherwise unknown). Each photo's page URL, image URL and date are in its folder's `manifest.json`. They are used
+as modelling references only and are not bundled into the game.
+
+- Arthur Lloyd (music hall and theatre history site): http://www.arthurlloyd.co.uk/WimbledonTheatre.htm
+- Cinema Treasures (user-contributed photos): https://cinematreasures.org/theaters/32724
+- Foster Wilson Size (architects): https://fosterwilsonsize.com/projects/polka-theatre-wimbledon/
+- Layers of London: https://www.layersoflondon.org/map/records/hand-racquet
+- London Churches in photographs (londonchurchbuildings.com): https://londonchurchbuildings.com/2015/01/25/st-winefride-merton-roadlatimer-road-wimbledon-roman-catholic/
+- Love Wimbledon (Wimbledon BID): https://lovewimbledon.org/centre-court-shopping-rebrands-as-wimbledon-quarter/, https://lovewimbledon.org/prince-of-wales-reopens-after-six-figure-upgrade/
+- MAS architecture (architects): https://www.masarchitecture.co.uk/2021/05/merton-rd-wimbledon/
+- Merton Council, Wimbledon Broadway Conservation Area Design Guide (1999): https://www.merton.gov.uk/assets/Documents/0177_wimbledon_broadway_design_guide.pdf
+- Merton Council, Wimbledon Hill Road Conservation Area Character Assessment: https://www.merton.gov.uk/assets/Documents/0177_wimbledon_hill_road_character_assessment.pdf
+- Taking Stock (Catholic Church buildings review, with Historic England): https://taking-stock.org.uk/building/wimbledon-south-st-winefride/
+- useyourlocal.com: https://www.useyourlocal.com/pubs/prince-of-wales-merton-london-sw19-10582/
+- WhatPub (CAMRA pub guide, member photos): https://whatpub.com/pubs/SWL/2801/hand-racquet-wimbledon, https://whatpub.com/pubs/SWL/2829/horse-groom-merton, https://whatpub.com/pubs/SWL/2878/oneills-wimbledon, https://whatpub.com/pubs/SWL/2897/prince-of-wales-wimbledon, https://whatpub.com/pubs/SWL/2904/prince-of-wales-merton, https://whatpub.com/pubs/SWL/2973/old-frizzle-wimbledon, https://whatpub.com/pubs/SWL/2982/wibbas-down-inn-wimbledon
+- Wimbledon Quarter (shopping centre website): https://wimbledonquarter.com/
+<!-- /r93-web -->
