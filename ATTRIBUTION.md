@@ -98,23 +98,39 @@ otherwise unknown). Each photo's page URL, image URL and date are in its folder'
 as modelling references only and are not bundled into the game.
 
 - Arthur Lloyd (music hall and theatre history site): http://www.arthurlloyd.co.uk/WimbledonTheatre.htm
+- CAMRA WhatPub: https://camra.org.uk/pubs/ganleys-irish-bar-morden-140249, https://camra.org.uk/pubs/george-inn-harvester-morden-140252, https://camra.org.uk/pubs/lord-nelson-north-cheam-141421, https://camra.org.uk/pubs/nonsuch-inn-north-cheam-141448, https://camra.org.uk/pubs/place/north-cheam-12831?sort=nearest, https://camra.org.uk/pubs/royal-surrey-pub-morden-140407
 - Cinema Treasures (user-contributed photos): https://cinematreasures.org/theaters/32724
+- Clay Street (agent), Asda Stonecot Hill investment brochure: https://www.claystreet.co.uk/wp-content/uploads/2024/09/Asda-Sutton.pdf
 - Douglas & Gordon (estate agent listing): https://www.douglasandgordon.com/buy/property-details/50926/putney-hill-sw15/
 - Firstplan (Putney Exchange project page): https://www.firstplan.co.uk/projects/putney-exchange/
 - Foster Wilson Size (architects): https://fosterwilsonsize.com/projects/polka-theatre-wimbledon/
 - Grace Miller & Co (estate agent listing): https://gracemiller.co.uk/property/chalford-court-putney-hill-london-sw15-2/
 - IanVisits: https://www.ianvisits.co.uk/articles/80611-80611/
+- J D Wetherspoon: https://www.jdwetherspoon.com/pubs/the-nonsuch-inn-north-cheam/
 - Layers of London: https://www.layersoflondon.org/map/records/hand-racquet
 - London Churches in photographs (londonchurchbuildings.com): https://londonchurchbuildings.com/2015/01/25/st-winefride-merton-roadlatimer-road-wimbledon-roman-catholic/
+- London Churches in Photographs (londonchurchbuildings.com): https://londonchurchbuildings.com/2015/01/25/emmanuel-stonecot-hilldudley-drive-morden/, https://londonchurchbuildings.com/2015/01/25/st-lawrence-london-road-morden/, https://londonchurchbuildings.com/2015/01/30/st-cecilia-stonecot-hill-north-cheam-roman-catholic/
 - Love Wimbledon (Wimbledon BID): https://lovewimbledon.org/centre-court-shopping-rebrands-as-wimbledon-quarter/, https://lovewimbledon.org/prince-of-wales-reopens-after-six-figure-upgrade/
 - MAS architecture (architects): https://www.masarchitecture.co.uk/2021/05/merton-rd-wimbledon/
+- Merton Council, Morden Sub Area Neighbourhoods: 14 Morden (borough character study): https://www.merton.gov.uk/system/files?file=0266-14_morden.pdf
+- Merton Council, Morden Sub Area Neighbourhoods: 18 Morden Park (borough character study): https://www.merton.gov.uk/system/files?file=0266-18_morden_park-2.pdf
 - Merton Council, Wimbledon Broadway Conservation Area Design Guide (1999): https://www.merton.gov.uk/assets/Documents/0177_wimbledon_broadway_design_guide.pdf
 - Merton Council, Wimbledon Hill Road Conservation Area Character Assessment: https://www.merton.gov.uk/assets/Documents/0177_wimbledon_hill_road_character_assessment.pdf
 - Merton Council, Wimbledon Village Conservation Area Design Guide (property descriptions): https://www.merton.gov.uk/assets/Documents/0177_wimbledon_village_conservation_area_design_guide_p19-27.pdf, https://www.merton.gov.uk/assets/Documents/0177_wimbledon_village_conservation_area_design_guide_p28-40.pdf
+- Merton Council: Merton Character Study, chapter 20i Morden: https://www.merton.gov.uk/system/files?file=chapter20i.pdf
+- Merton Council: Morden Station Planning Brief (March 2014): https://www.merton.gov.uk/system/files/05a_morden_station_planning_brief_mar14.pdf
+- Merton Historical Society, Bill Rudd Collection: https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-aberconway-road/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-crown-lane/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-102-106-81-117-morden-court-parade/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-even-numbers/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-odd-numbers/
+- New London Architecture: https://nla.london/projects/baitul-futuh-mosque
+- Open House Festival: https://programme.openhouse.org.uk/listings/3600
 - Premier Inn (London Putney Bridge hotel images): https://www.premierinn.com/gb/en/hotels/england/greater-london/london/london-putney-bridge.html
 - Premier Magazine: https://www.premiermagazine.biz/news-blog/property/meticulously-restored-by-octagon-eagle-house-has-fascinating-blue-plaque-heritage/
+- Pubs Galore: https://www.pubsgalore.co.uk/pubs/56983/
 - Putney SW15 (local news site): https://www.putneysw15.com/info/concrisis001.htm, https://www.putneysw15.com/trading/conhighstopenings2111.htm
+- speel.me.uk (Bob Speel): http://www.speel.me.uk/chlondon/mordench.htm
+- St Lawrence Church, Morden: https://stlawrencechurch.co.uk/about-us/history/
+- Sutton Council, Draft Sutton's Character Study (June 2024): https://www.sutton.gov.uk/sites/default/files/2026-04/Draft%20Sutton%20Character%20Study%20v9.5%20(Reduced%20Size).pdf
 - Taking Stock (Catholic Church buildings review, with Historic England): https://taking-stock.org.uk/building/wimbledon-south-st-winefride/
+- Taking Stock (Catholic churches of England and Wales): https://taking-stock.org.uk/building/north-cheam-st-cecilia/
 - The Dog & Fox (Young's) website: https://www.dogandfoxwimbledon.co.uk/
 - The Spotted Horse (Young's) website: https://www.spottedhorse.co.uk/
 - TrustedCare: https://www.trustedcare.co.uk/care-homes/heathland-court-bupa
