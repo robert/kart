@@ -125,6 +125,7 @@ as modelling references only and are not bundled into the game.
 - Merton Council: Merton Character Study, chapter 20i Morden: https://www.merton.gov.uk/system/files?file=chapter20i.pdf
 - Merton Council: Morden Station Planning Brief (March 2014): https://www.merton.gov.uk/system/files/05a_morden_station_planning_brief_mar14.pdf
 - Merton Historical Society, Bill Rudd Collection: https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-aberconway-road/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-crown-lane/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-102-106-81-117-morden-court-parade/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-even-numbers/, https://mertonhistoricalsociety.org.uk/bill-rudd-collection-morden-shops-london-road-odd-numbers/
+- Merton Historical Society, Photographic Record: https://mertonhistoricalsociety.org.uk/photographic-record/
 - New London Architecture: https://nla.london/projects/baitul-futuh-mosque
 - Open House Festival: https://programme.openhouse.org.uk/listings/3600
 - Premier Inn (London Putney Bridge hotel images): https://www.premierinn.com/gb/en/hotels/england/greater-london/london/london-putney-bridge.html
@@ -132,7 +133,7 @@ as modelling references only and are not bundled into the game.
 - propertyauctions.io (EIG auction listing): https://propertyauctions.io/listings/90aeca6ca6b2bf59a24d72ab3915e15d
 - Pubs Galore: https://www.pubsgalore.co.uk/pubs/56983/
 - Putney SW15 (local news site): https://www.putneysw15.com/info/concrisis001.htm, https://www.putneysw15.com/trading/conhighstopenings2111.htm
-- Rightmove (sold house prices): https://www.rightmove.co.uk/house-prices/sw15/putney-hill.html, https://www.rightmove.co.uk/house-prices/sw19/parkside.html, https://www.rightmove.co.uk/house-prices/sw19/wimbledon-park-side.html
+- Rightmove (sold house prices): https://www.rightmove.co.uk/house-prices/sm3/church-hill-road.html, https://www.rightmove.co.uk/house-prices/sm3/london-road.html, https://www.rightmove.co.uk/house-prices/sm3/priory-road.html, https://www.rightmove.co.uk/house-prices/sm3/stonecot-hill.html, https://www.rightmove.co.uk/house-prices/sm4/epsom-road.html, https://www.rightmove.co.uk/house-prices/sm4/london-road.html, https://www.rightmove.co.uk/house-prices/sw15/putney-hill.html, https://www.rightmove.co.uk/house-prices/sw19-3bh.html, https://www.rightmove.co.uk/house-prices/sw19-3bj.html, https://www.rightmove.co.uk/house-prices/sw19-3bp.html, https://www.rightmove.co.uk/house-prices/sw19-3bs.html, https://www.rightmove.co.uk/house-prices/sw19-3bx.html, https://www.rightmove.co.uk/house-prices/sw19-3by.html, https://www.rightmove.co.uk/house-prices/sw19-3eq.html, https://www.rightmove.co.uk/house-prices/sw19/merton-road.html, https://www.rightmove.co.uk/house-prices/sw19/parkside.html, https://www.rightmove.co.uk/house-prices/sw19/wimbledon-park-side.html
 - Singer Vielle (investment agent), Costa Coffee 6 Morden Road sale particulars: https://previous.singervielle.com/previous-sales/properties/costa-coffee-london-wimbledon.html
 - speel.me.uk (Bob Speel): http://www.speel.me.uk/chlondon/mordench.htm
 - St Lawrence Church, Morden: https://stlawrencechurch.co.uk/about-us/history/
