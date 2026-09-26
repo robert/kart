@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="dist/style.css?v=061a9d1264">
+<link rel="stylesheet" href="dist/style.css?v=5dc5f7dfb8">
 <style>
 /* ---- loading screen (inline so it paints instantly; the rest of the UI is in dist/style.css) ---- */
 html, body { background: #040915; }
@@ -137,7 +137,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <span class="ld-cta"><b>Click or press any key</b><small>Sound on · start your engines</small></span>
     <span class="ld-on"><b>Sound on</b><small>Soundtrack playing</small></span>
   </button>
-  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 26 Sep 2026 01:46 BST · cf1983ae</span></div>
+  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 26 Sep 2026 02:01 BST · ed15d264</span></div>
 </div>
 
 <!-- ============================================================ TITLE -->
@@ -393,7 +393,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
   ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, gesture, true); });
 })();
 </script>
-<script>window.ASSET_Q = { route213: '?v=c76c340bf5', route93: '?v=2f8b3d57b6' }; /* versioned asset query strings: filled in by tools/export_site.sh */</script>
-<script src="dist/game.js?v=53341a87a5" defer></script>
+<script>window.ASSET_Q = { route213: '?v=c76c340bf5', 'route213.core': '?v=1cb71e1e4f', route93: '?v=2f8b3d57b6', 'route93.core': '?v=e65a5d3b49' }; /* versioned asset query strings: filled in by tools/export_site.sh */</script>
+<script src="dist/game.js?v=363cbd4e17" defer></script>
 </body>
 </html>
