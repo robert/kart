@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- web fonts load asynchronously so they never block the game starting (works offline with the fallbacks) -->
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="dist/style.css?v=5dc5f7dfb8">
+<link rel="stylesheet" href="dist/style.css?v=d483ec415b">
 <style>
 /* ---- loading screen (inline so it paints instantly; the rest of the UI is in dist/style.css) ---- */
 html, body { background: #040915; }
@@ -137,7 +137,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
     <span class="ld-cta"><b>Click or press any key</b><small>Sound on · start your engines</small></span>
     <span class="ld-on"><b>Sound on</b><small>Soundtrack playing</small></span>
   </button>
-  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 28 Sep 2026 07:59 BST · fc3270bd</span></div>
+  <div class="legal">Map data © <b>OpenStreetMap</b> contributors · Terrain &amp; heights © <b>Environment Agency</b> (OGL) · <span id="deployed-at">deployed 28 Sep 2026 15:02 BST · 5da08d14</span></div>
 </div>
 
 <!-- ============================================================ TITLE -->
@@ -181,6 +181,7 @@ body.sound-on .ld-on small { color: #2fd67b; }
       <div class="opts">
         <div class="opt" id="cc" data-nav="cc"></div>
         <div class="opt" id="quality" data-nav="quality"></div>
+        <div class="opt" id="players" data-nav="players"></div>
       </div>
       <div class="sel-bottom">
         <details class="controls glass" id="controls">
@@ -194,7 +195,8 @@ body.sound-on .ld-on small { color: #2fd67b; }
 </div>
 
 <!-- ============================================================ HUD -->
-<div id="hud" hidden>
+<div id="splitline" hidden></div>
+<div id="hud" class="hud" hidden>
   <div id="tower">
     <div class="tw-head"><span class="tw-logo" data-mini-roundel></span><span class="k">Lap</span><b id="lapn">1</b><span class="of">/<span id="lapt">3</span></span></div>
     <div class="pips" id="lappips"></div>
@@ -394,6 +396,6 @@ body.sound-on .ld-on small { color: #2fd67b; }
 })();
 </script>
 <script>window.ASSET_Q = { route213: '?v=c76c340bf5', 'route213.core': '?v=1cb71e1e4f', route93: '?v=2f8b3d57b6', 'route93.core': '?v=e65a5d3b49' }; /* versioned asset query strings: filled in by tools/export_site.sh */</script>
-<script src="dist/game.js?v=e7251e602c" defer></script>
+<script src="dist/game.js?v=c79ad37137" defer></script>
 </body>
 </html>
