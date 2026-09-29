@@ -6559,24 +6559,20 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
           if (ml < 1.0) mv = vec2(0.0);
         }
       }
-      if (dot(mv, mv) > 0.0 && blur <= 0.0005) {
-        vec3 c0 = S(vUv);
-        col = c0; float n = 1.0;
+      // one path for every pixel, faded in by how much it moves (a hard switch between motion blur, speed blur and the
+      // sharpened image drew a ring round the kart, shrinking as the speed blur's threshold radius came in with speed)
+      vec3 c0 = S(vUv);
+      vec3 nb = S(vUv + vec2(texel.x, 0.0)) + S(vUv - vec2(texel.x, 0.0)) + S(vUv + vec2(0.0, texel.y)) + S(vUv - vec2(0.0, texel.y));
+      col = max(c0 + (c0 - nb * 0.25) * sharpen, 0.0);   // light unsharp mask (against FXAA softness; lighter under TAA)
+      float mw = clamp(max(blur / 0.004, length(mv / texel) / 4.0), 0.0, 1.0);
+      if (mw > 0.0) {
+        vec3 acc = vec3(0.0); float n = 0.0;
         for (int i = 0; i < 8; i++) {
-          vec2 q = vUv + mv * ((float(i) + 0.5) / 8.0 - 0.5);
-          if (texture2D(tDiffuse, q).a < -500.0) continue;   // (a kart: not smeared)
-          col += S(q); n += 1.0;
+          vec2 q = vUv + mv * ((float(i) + 0.5) / 8.0 - 0.5) - d * blur * (float(i) / 7.0);
+          if (dot(mv, mv) > 0.0 && texture2D(tDiffuse, q).a < -500.0 && i > 0) continue;   // (a kart: not smeared into the background)
+          acc += tap(q, d, ca); n += 1.0;
         }
-        col /= n;
-      } else if (blur > 0.0005) {
-        col = vec3(0.0);
-        for (int i = 0; i < 8; i++) col += tap(vUv - d * blur * (float(i) / 7.0), d, ca);
-        col /= 8.0;
-      } else {
-        // light unsharp mask (against FXAA softness on Medium; lighter under TAA, which sharpens its own output)
-        vec3 c0 = S(vUv);
-        vec3 nb = S(vUv + vec2(texel.x, 0.0)) + S(vUv - vec2(texel.x, 0.0)) + S(vUv + vec2(0.0, texel.y)) + S(vUv - vec2(0.0, texel.y));
-        col = max(c0 + (c0 - nb * 0.25) * sharpen, 0.0);
+        col = mix(col, acc / max(n, 1.0), mw);
       }
       // filmic grade (display space): gentle S-curve, cool shadows, warm highlights, vibrance
       float l = dot(col, vec3(0.2126, 0.7152, 0.0722));
