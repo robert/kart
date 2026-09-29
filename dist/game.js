@@ -6474,7 +6474,7 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
         vec2 uv = sunP.xy + o;
         if (uv.x < 0.0 || uv.y < 0.0 || uv.x > 1.0 || uv.y > 1.0) continue;
         float sky = step(0.99999, texture2D(tDepth, uv).r);
-        float lum = dot(texture2D(tDiffuse, uv).rgb, vec3(0.2126, 0.7152, 0.0722));
+        float lum = dot(textureLod(tDiffuse, uv, 0.0).rgb, vec3(0.2126, 0.7152, 0.0722));
         v += sky * smoothstep(2.0, 5.0, lum);
       }
       vec2 e = min(sunP.xy, 1.0 - sunP.xy);
@@ -6514,7 +6514,7 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
       return mix(pow(color, vec3(0.41666)) * 1.055 - vec3(0.055), color * 12.92, vec3(lessThanEqual(color, vec3(0.0031308))));
     }
     float lc = 1.0; // this pixel's local-contrast gain (low frequency, so shared by the neighbouring taps)
-    vec3 S(vec2 uv){ return tm(texture2D(tDiffuse, uv).rgb * aoM * lc); }
+    vec3 S(vec2 uv){ return tm(textureLod(tDiffuse, uv, 0.0).rgb * aoM * lc); }
     float h(vec2 p){ vec3 p3 = fract(vec3(p.xyx) * 0.1031 + time * 0.37); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
     vec3 tap(vec2 uv, vec2 d, float ca){
       if (ca < 1e-5) return S(uv);
@@ -6526,7 +6526,7 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
       if (shaftsOn > 0.5) bl += texture2D(tShafts, vUv).rgb * vec3(1.0, 0.88, 0.7) * 0.35 * exposure;
       if (aoOn > 0.5) {
         // AO darkens the ambient light: less of it where the pixel is brightly sunlit
-        float lum = dot(texture2D(tDiffuse, vUv).rgb, vec3(0.2126, 0.7152, 0.0722)) * exposure;
+        float lum = dot(textureLod(tDiffuse, vUv, 0.0).rgb, vec3(0.2126, 0.7152, 0.0722)) * exposure;
         aoM = vec3(mix(1.0, aoAt(), aoStrength * (1.0 - 0.4 * smoothstep(0.3, 1.2, lum))));
       }
       if (skyOn > 0.5) aoM *= skyAt();
@@ -6569,7 +6569,7 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
         vec3 acc = vec3(0.0); float n = 0.0;
         for (int i = 0; i < 8; i++) {
           vec2 q = vUv + mv * ((float(i) + 0.5) / 8.0 - 0.5) - d * blur * (float(i) / 7.0);
-          if (dot(mv, mv) > 0.0 && texture2D(tDiffuse, q).a < -500.0 && i > 0) continue;   // (a kart: not smeared into the background)
+          if (dot(mv, mv) > 0.0 && textureLod(tDiffuse, q, 0.0).a < -500.0 && i > 0) continue;   // (a kart: not smeared into the background)
           acc += tap(q, d, ca); n += 1.0;
         }
         col = mix(col, acc / max(n, 1.0), mw);
@@ -6606,7 +6606,7 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
         uniform sampler2D tDiffuse; uniform highp sampler2D tDepth; uniform vec3 sunP; uniform float aspect; varying vec2 vUv;
         void main(){
           float sky = step(0.99999, texture2D(tDepth, vUv).r);
-          vec3 c = min(texture2D(tDiffuse, vUv).rgb, vec3(8.0));
+          vec3 c = min(textureLod(tDiffuse, vUv, 0.0).rgb, vec3(8.0));
           float r = length((vUv - sunP.xy) * vec2(aspect, 1.0));
           float lum = dot(c, vec3(0.2126, 0.7152, 0.0722));
           gl_FragColor = vec4(c * sky * smoothstep(0.6, 3.0, lum) * exp(-r * 4.5), 1.0);
@@ -6637,26 +6637,26 @@ uniform vec3 furLight;`).replace("#include <map_fragment>",`
           return max(c / ws, 0.0);
         }
         void main(){
-          vec3 cur = texture2D(tCur, vUv).rgb;
+          vec3 cur = textureLod(tCur, vUv, 0.0).rgb;
           if (dbg > 1.5) { gl_FragColor = vec4(dbg < 2.5 ? cur : texture2D(tHist, vUv).rgb, 0.0); return; }
           // neighbourhood colour box (YCoCg mean +- deviation), and the nearest depth round the pixel (sharper edges in motion)
           vec3 m1 = vec3(0.0), m2 = vec3(0.0);
           float dMin = 1.0; vec2 dOff = vec2(0.0);
           for (int j = 0; j < 9; j++) {
             vec2 o = vec2(float(j % 3) - 1.0, float(j / 3) - 1.0);
-            vec3 y = toY(texture2D(tCur, vUv + o * texel).rgb);
+            vec3 y = toY(textureLod(tCur, vUv + o * texel, 0.0).rgb);
             m1 += y; m2 += y * y;
             float d = texture2D(tDepth, vUv + o * texel).r;
             if (d < dMin) { dMin = d; dOff = o; }
           }
           m1 /= 9.0;
           vec3 sd = sqrt(max(m2 / 9.0 - m1 * m1, 0.0));
-          bool dyn = texture2D(tScene, vUv).a < -500.0;
+          bool dyn = textureLod(tScene, vUv, 0.0).a < -500.0;
           vec4 w = invVP * vec4(vec3(vUv + dOff * texel, dMin) * 2.0 - 1.0, 1.0);
           vec4 pc = prevVP * vec4(w.xyz / w.w, 1.0);
           vec2 puv = dyn ? vUv : pc.xy / pc.w * 0.5 + 0.5 - dOff * texel;
           // a kart: this frame's colour taken where it would be without the jitter (stable edges even with no history)
-          if (dyn) cur = texture2D(tCur, vUv + jitter).rgb;
+          if (dyn) cur = textureLod(tCur, vUv + jitter, 0.0).rgb;
           if (valid < 0.5 || puv.x < 0.0 || puv.y < 0.0 || puv.x > 1.0 || puv.y > 1.0 || pc.w <= 0.0) { gl_FragColor = vec4(cur, dyn ? 1.0 : 0.0); return; }
           // the history's kart flag (alpha): a kart's history must have been a kart, the world's must not have been one
           // (karts move over the ground: that history is theirs, not the road's)
