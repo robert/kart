@@ -93,6 +93,12 @@ and Parkside, Wimbledon Village, Wimbledon Hill Road, Merton Road, Morden Road, 
 file's own licence) and Flickr (Creative Commons licences only; non-commercial / no-derivatives ones are marked
 `reference_only`). Each photo's author, licence, source URL and date are in its folder's `manifest.json`. They are
 used as modelling references only and are not bundled into the game.
+
+The route 93 round 6 reference photos (`reference-photos/route93-more-<stretch>/`, the whole course; see
+`docs/r93_more_photos.md`) are from Geograph (https://www.geograph.org.uk, CC BY-SA 2.0), Wikimedia Commons (each
+file's own licence) and Flickr (Creative Commons and public-domain licences only; non-commercial / no-derivatives
+ones are marked `reference_only`). Each photo's author, licence, source URL and date are in its folder's
+`manifest.json`. They are used as modelling references only and are not bundled into the game.
 <!-- r93-web -->
 The route 93 general-web reference photos (`reference-photos/route93-web-<stretch>/`) were collected from the
 public web pages listed below; copyright stays with each site or photographer (licence as stated on the page,
